@@ -42,6 +42,35 @@ python app.py
 
 7. Open http://127.0.0.1:5000 in your browser.
 
+### Running tests
+
+From the `starter` directory, create and activate the virtual environment,
+then install the dependencies:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+```
+
+Run the complete pytest suite with:
+
+```powershell
+python -m pytest
+```
+
+For a shorter output, use `python -m pytest -q`. To run only the Flask route
+tests, use `python -m pytest tests/test_app.py`.
+
+### Leaderboard persistence
+
+Completed games are saved in the browser under the
+`sudoku-top-10` localStorage key. Each record contains the player name,
+elapsed time in seconds, selected difficulty, and hints used. After each
+successful check, the new record is merged with existing records, sorted by
+elapsed time, and truncated to the ten fastest entries. The browser restores
+and displays these records on every page load; clearing site data removes
+the leaderboard.
+
 ## Project Instructions
 
 Use GitHub Copilot to refactor the code for this game to add more advanced features. The goal is to create a more modern and maintainable codebase and add additional functionality to the final product. You can use any combination of code completion and chat features, like Ask, Edit, or Agent modes.
